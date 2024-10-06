@@ -16,7 +16,7 @@ pip install torch==1.11
 pip install -r requirements.txt
 conda install torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
 ```
-Infer the pytorch official website：https://pytorch.org/get-started/previous-versions/
+Refer the pytorch official website：https://pytorch.org/get-started/previous-versions/
 ### 5 pretrained model downloading (taking LDM as an example)
 To download the pretrained models efficiently, follow these steps:
 First download the diffusers.
