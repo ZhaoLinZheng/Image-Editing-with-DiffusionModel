@@ -49,9 +49,11 @@ https://cocodataset.org/
 VQAE的重建作为上界。将VQAE的编码z_0作为GT。
 #### Random Pivot
 目的：测试DDIM initialization的重要性
+
 方法：将基于DDIM的inversion轨迹替换为随机轨迹。随机采样**一个**标准正态的高斯噪声，使用diffusion scheduler，进行z_0到z_t的扩散。（将DDIM inversion中的噪声替换为这个采样出的高斯噪声，反演公式其余部分保持不变）
 #### Robustness to different input captions
 目的：由于方法需要一个input caption，需要测试方法对于选择的caption的鲁棒性。
+
 方法：对于每张图像，从数据集中采样一个随机的caption。即使使用不对齐的caption，优化也收敛于关于VQAE的最优重构。因此，null-text反演是关于caption鲁棒的。但是对于基于文本的编辑而言，并不想要随机提供一个caption。但提供任意一个合理的可编辑的prompt是可行的。实验中，通过使用多个caption对同一张图像进行inversion，说明待编辑的区域应该包含在source caption中，来产生语义attention map以便于图像编辑。
 #### Global null-text embedding
 对于所有timestamp共享一个null-text embedding，实验证明这种方法使得优化难以收敛。因此，最终采用每个timestamp一个不同的null embdding。
