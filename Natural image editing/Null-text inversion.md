@@ -8,7 +8,7 @@
 
 主要创新点：（w=1）DDIM inversion as pivot，（w>1）pivotal tuning，optimize the null text embedding。
 
-缺点：推理速度太慢，使用SD带来的编辑人脸图像时会出现伪影，和不能进行大幅度修改的问题。
+缺点：推理速度太慢，使用SD带来的编辑人脸图像时会出现伪影，和不能进行大幅度结构修改的问题。
 
 说明：进行DDIM反演时，w=1,只采用条件DFM。
 
