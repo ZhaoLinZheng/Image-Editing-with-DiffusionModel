@@ -66,4 +66,5 @@ VQAE的重建作为上界。将VQAE的编码z_0作为GT。
 #### Null-text optimization without pivotal inversion
 我们观察到，使用随机噪声向量来优化无条件的空文本嵌入，而不是像前面的pivotal inversion，完全破坏了空文本优化。
 方法与“Textual inversion”一节相像。我们假设零文本优化比模型调优表现力差，因此依赖于有效的pivotal inversion，因为它难以将所有噪声向量映射到单个图像。
-![Image]([Images/Null-text ablation study.png](https://github.com/ZhaoLinZheng/Image-Editing-with-DiffusionModel/blob/508ca1dc8edf663e52b61668ba34a21f32deb79a/Images/Null-text%20ablation%20study.png))
+
+![Image](https://github.com/ZhaoLinZheng/Image-Editing-with-DiffusionModel/blob/508ca1dc8edf663e52b61668ba34a21f32deb79a/Images/Null-text%20ablation%20study.png)
