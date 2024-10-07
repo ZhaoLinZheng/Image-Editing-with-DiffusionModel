@@ -61,6 +61,8 @@ VQAE的重建作为上界。将VQAE的编码z_0作为GT。
 优化目标见论文：通过优化C使得denoising中预测的噪声与前面随机采样的噪声距离最小。
 #### Textual inversion with a pivot
 【通过观察优化目标，没看懂是如何将pivotal inversion用到textual inversion中的】
+读了textual inversion原论文后，突然想明白为什么没看懂了。
+“优化目标见论文：通过优化C使得denoising中预测的噪声与前面随机采样的噪声距离最小。”中“预测的噪声”是在w>1的情况下预测的，而pivotal inversion中的噪声是w=1的情况下预测的。二者不同，所以不会出现优化目标为0，没法优化的思想误区。
 #### Null-text optimization without pivotal inversion
 我们观察到，使用随机噪声向量来优化无条件的空文本嵌入，而不是像前面的pivotal inversion，完全破坏了空文本优化。
 方法与“Textual inversion”一节相像。我们假设零文本优化比模型调优表现力差，因此依赖于有效的pivotal inversion，因为它难以将所有噪声向量映射到单个图像。
