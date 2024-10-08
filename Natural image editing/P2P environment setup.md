@@ -25,9 +25,7 @@ Refer the pytorch official website：https://pytorch.org/get-started/previous-ve
 
 A better practice is to set the environment variable `GIT_LFS_SKIP_SMUDGE=1` (this may be why the official Hugging Face page mentions this parameter), and then perform `git clone`. This way, Git will first download all files in the repository except for the large files. Then we can use some tools that support breakpoint resumption to download the large files. This way, both breakpoint resumption is supported, and the `.git` directory will not be too large (usually only a few hundred KB).
 ```
-Author: Messi Loves Cycling
-		Link: https://www.jianshu.com/p/86c4a45f0a18
-		Source: Jian Shu
+	Source link: https://www.jianshu.com/p/86c4a45f0a18
 ```
 To download the pretrained models efficiently, follow these steps:
 
