@@ -18,13 +18,27 @@ conda install torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
 ```
 Refer the pytorch official website：https://pytorch.org/get-started/previous-versions/
 ### 5 pretrained model downloading (taking LDM as an example)
+ The official provides a way to download using `git clone repo_url`. This method is quite simple, but it is the least recommended method to use directly, with two main drawbacks:
+
+1) It does not support breakpoint resumption, if interrupted, it starts over from the beginning;
+2) Cloning will download historical versions, which take up disk space. Even if there are no historical versions, the `.git` folder will store a copy of the current version of the model and metadata, resulting in the entire model folder taking up more than double the disk space. For some models with historical versions, the download time can be more than double. This is strongly not recommended for users with unstable networks and insufficient disk space!
+
+A better practice is to set the environment variable `GIT_LFS_SKIP_SMUDGE=1` (this may be why the official Hugging Face page mentions this parameter), and then perform `git clone`. This way, Git will first download all files in the repository except for the large files. Then we can use some tools that support breakpoint resumption to download the large files. This way, both breakpoint resumption is supported, and the `.git` directory will not be too large (usually only a few hundred KB).
+```
+Author: Messi Loves Cycling
+		Link: https://www.jianshu.com/p/86c4a45f0a18
+		Source: Jian Shu
+```
 To download the pretrained models efficiently, follow these steps:
 
-First download the diffusers.
+Use `GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/[the Hugging Face path to the pretrained model]` to download all the files expect for the large files.  If you are at home, you can also replace `https://huggingface.co/` with `https://hf-mirror.com/` to accelerate the downloading.
+To download the pretrained models efficiently, follow these steps:
+
+Download the diffusers.
 ```python
 pip install diffusers
 ```
-Then, install huggingface_hub to download the SD and LDM pretrained model
+Install huggingface_hub to download the SD and LDM pretrained model
 ```python
 pip install -U huggingface_hub
 ```
