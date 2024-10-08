@@ -46,7 +46,7 @@ Since the large size of the pre-trained model, it is recommended to  run the fol
 ```shell
 tmux new -s p2p
 tmux attach -t p2p
-huggingface-cli download --resume-download CompVis/ldm-text2im-large-256 --local--dir ldm-text2im-large-256
+huggingface-cli download --resume-download CompVis/ldm-text2im-large-256 --local-dir ldm-text2im-large-256
 ```
 ### 6 run the jupyter LDM
 Before running the Jupyter notebook, ensure to update the "model_id" to your local path instead of the Hugging Face path.
