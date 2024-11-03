@@ -56,7 +56,7 @@ Just like
 ### 7 Supplement
 For detailed instructions on running and operating Jupyter locally on a remote server, follow the steps below. 
 
-First, set up jupyter  in our virtual environment with "conda install ipykernel".
+First, set up jupyter  in our virtual environment with ```"conda install ipykernel"```.
 
 Then before  running Jupyter,  add the specific virtual environment you setup before to the Jupyter kernel.
 ```shell
